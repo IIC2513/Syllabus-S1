@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "890a72ba-58ac-4655-8de3-63d20e0c823b",
+		"name": "T2-WEB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31870192"
+	},
+	"item": [
+		{
+			"name": "recipes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer panconqueso",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/recipes",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recipe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Empanadas de Pino\",\r\n    \"description\": \"Empanadas rellenas de carne, cebolla, huevo duro y aceitunas\",\r\n    \"ingredients\": [\r\n        \"Carne molida\",\r\n        \"Cebolla\",\r\n        \"Huevo duro\",\r\n        \"Aceitunas\",\r\n        \"Masa para empanadas\"\r\n    ],\r\n    \"steps\": [\r\n        \"Preparar el pino\",\r\n        \"Rellenar la masa\",\r\n        \"Hornear las empanadas\"\r\n    ],\r\n    \"image\": \"https://www.gourmet.cl/wp-content/uploads/2016/09/Empanadas-web-1-570x458.jpg\",\r\n    \"categories\": [\r\n        \"Tradicional\",\r\n        \"Horno\"\r\n    ],\r\n    \"evaluation\": 5,\r\n    \"preparation_time_in_minutes\": 90\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/recipes/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"recipes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recipe by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/recipes/{recipe_id}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"recipes",
+						"{recipe_id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Recipe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Empanadas rellenas de carne, cebolla, huevo duro y aceitunas.\",\r\n    \"ingredients\": [\r\n        \"Carne molida\",\r\n        \"Cebolla\",\r\n        \"Huevo duro\",\r\n        \"Aceitunas\",\r\n        \"Masa para empanadas\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/recipes/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"recipes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recipe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/recipes/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"recipes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recipes by ingredients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/recipes/ingredients/?ingredients=Papas",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"recipes",
+						"ingredients",
+						""
+					],
+					"query": [
+						{
+							"key": "ingredients",
+							"value": "Papas"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

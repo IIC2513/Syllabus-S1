@@ -15,7 +15,7 @@ Este curso está diseñado para que sus estudiantes logren comprender la infraes
 
 ### Ayudantes
 
-| Nombre | Telegram | Email | 
+| Nombre | GitHub | Email | 
 | :----- | :----- | :---- |
 | Andrés Venegas¹ | [@Andrew_venegas](https://github.com/Andrew_venegas) | [avenegasvera@uc.cl](mailto:avenegasvera@uc.cl) |
 | Pablo Sepúlveda² | [@psepulvedas](https://github.com/psepulvedas) | [pablo.seplveda@uc.cl](mailto:pablo.seplveda@uc.cl) |

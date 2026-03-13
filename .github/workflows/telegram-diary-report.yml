@@ -29,8 +29,8 @@ jobs:
         if: steps.get_issues.outputs.count == '1'
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_GROUP_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           format: html
           message: |
             <b>⚠️ Issues sin respuesta</b>

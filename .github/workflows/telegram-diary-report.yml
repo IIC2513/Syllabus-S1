@@ -3,6 +3,7 @@ name: Report Unanswered Issues
 on:
   schedule:
     - cron: '0 13 * * *'
+  workflow_dispatch:
 
 jobs:
   check-issues:

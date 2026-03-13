@@ -1,0 +1,42 @@
+name: Report Unanswered Issues
+
+on:
+  schedule:
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+
+jobs:
+  check-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for unanswered issues
+        id: get_issues
+        env:
+            GH_TOKEN: ${{ github.token }}
+        run: |
+          ISSUES=$(gh issue list --repo ${{ github.repository }} --json title,url,comments --jq '.[] | select(.comments | length == 0) | "- " + .title + " (" + .url + ")"' | head -n 10)
+          
+          if [ -z "$ISSUES" ]; then
+            echo "count=0" >> $GITHUB_OUTPUT
+          else
+            echo "list<<EOF" >> $GITHUB_OUTPUT
+            echo "$ISSUES" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            echo "count=1" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send report
+        if: steps.get_issues.outputs.count == '1'
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: html
+          message: |
+            <b>⚠️ Issues sin respuesta</b>
+            Estas son las issues del día anterior (o antes) que siguen sin respuesta:
+
+            ${{ steps.get_issues.outputs.list }}
+            
+            <i>Actívense que hay que responder 🚀</i>
+        

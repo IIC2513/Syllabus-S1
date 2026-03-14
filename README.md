@@ -13,6 +13,10 @@ Este curso está diseñado para que sus estudiantes logren comprender la infraes
 [@aaossa]:              https://github.com/aaossa
 [aaossa@uc.cl]:    mailto:aaossa@uc.cl
 
+## 📍 Política de Nombramiento de Issues 
+**Estructura:** `[Código] - [Resumen de la duda]`
+
+Más detalle [aquí](https://github.com/IIC2513/Syllabus-S1/issues/5)
 
 ### Ayudantes
 

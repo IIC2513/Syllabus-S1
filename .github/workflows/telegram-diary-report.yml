@@ -14,7 +14,7 @@ jobs:
         env:
             GH_TOKEN: ${{ github.token }}
         run: |
-          ISSUES=$(gh issue list --repo ${{ github.repository }} --json title,url,comments --jq '.[] | select(.comments | length == 0) | "- " + .title + " (" + .url + ")"' | head -n 10)
+          ISSUES=$(gh issue list --repo ${{ github.repository }} --json title,url,comments --jq '.[] | select(.comments | length == 0) | "- <a href=\"" + .url + "\">" + .title + "</a>"' | head -n 10)
           
           if [ -z "$ISSUES" ]; then
             echo "count=0" >> $GITHUB_OUTPUT

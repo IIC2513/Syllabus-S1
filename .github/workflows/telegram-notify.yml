@@ -8,18 +8,31 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Telegram message
+      - name: Check if working hours
+        id: check_time
+        run: |
+          DAY=$(TZ='America/Santiago' date +%u)
+          HOUR=$(TZ='America/Santiago' date +%H)
+          
+          if [ "$DAY" -le 5 ] && [ "$HOUR" -ge 9 ] && [ "$HOUR" -lt 22 ]; then
+            echo "is_active=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_active=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send Telegram Message
+        if: steps.check_time.outputs.is_active == 'true'
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_GROUP_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           format: html
           message: |
-            <b>Nueva Issue:</b>
-            <b>Título:</b> ${{ github.event.issue.title }}
-            <b>Autor:</b> ${{ github.event.issue.user.login }}
+            <b>🆕 Nueva Issue:</b>
+            <b> 📝 Título:</b> ${{ github.event.issue.title }}
+            <b> 👤 Autor:</b> ${{ github.event.issue.user.login }}
             
-            <a href="${{ github.event.issue.html_url }}">Ir a la issue</a>
+            <a href="${{ github.event.issue.html_url }}"> 🔗 Ir a la issue</a>
           
         
 

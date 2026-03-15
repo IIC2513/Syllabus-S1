@@ -2,7 +2,7 @@ name: Report Unanswered Issues
 
 on:
   schedule:
-    - cron: '0 13 * * *'
+    - cron: '0 14 * * 1-5'
   workflow_dispatch:
 
 jobs:
@@ -33,10 +33,10 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           format: html
           message: |
-            <b>⚠️ Issues sin respuesta</b>
-            Estas son las issues del día anterior (o antes) que siguen sin respuesta:
+            <b>⚠️ Issues sin responder</b>
+            Estas son las issues que aún no tienen respuesta:
 
             ${{ steps.get_issues.outputs.list }}
             
-            <i>Actívense que hay que responder 🚀</i>
+            <i>¡Actívense que hay que resolver las dudas! 🚀</i>
         

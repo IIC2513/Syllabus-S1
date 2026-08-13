@@ -1,2 +1,37 @@
-# Syllabus-S1
-Sección 1 - Antonio Ossa
+# IIC2513 - Tecnologías y Aplicaciones Web
+
+Este curso está diseñado para que sus estudiantes logren comprender la infraestructura tecnológica que soporta la World Wide Web y a manejar las principales tecnologías utilizadas en la creación de sitios y aplicaciones web. Además, el curso proporciona una base conceptual sólida para poder entender y trabajar con las nuevas tecnologías y propuestas que surgen en este contexto de manera constante.
+
+## Equipo docente
+
+### Profesor
+
+| Sección | Nombre | GitHub | Email |
+| :------ | :----- | :----- | :---- |
+| 1 | Antonio Ossa Guerra | [@aaossa] | [aaossa@uc.cl]
+
+[@aaossa]:              https://github.com/aaossa
+[aaossa@uc.cl]:    mailto:aaossa@uc.cl
+
+### Ayudantes
+
+| Nombre | GitHub | Email |
+| --- | --- | --- |
+| Ignacio Peña¹ | [@ignaciopena7](https://github.com/ignaciopena7) | [ignacio.p@uc.cl](mailto:ignacio.p@uc.cl) |
+| Natalia Torres² | ---- | [nltorresg@uc.cl](mailto:nltorresg@uc.cl) |
+| Steven Reynolds | [@SReynolds2022](https://github.com/SReynolds2022) | [sreynolds@uc.cl](mailto:sreynolds@uc.cl) |
+| Antonio Caceres | [@antonioignaciio](https://github.com/antonioignaciio) | [antonio.caceres@uc.cl](mailto:antonio.caceres@uc.cl) |
+| Agustín Consolo | [@Consolo0](https://github.com/Consolo0) | [aconsolo@uc.cl](mailto:aconsolo@uc.cl) |
+| José Villalobos | [@jtvvtj](https://github.com/jtvvtj) | [jos.villalobos@uc.cl](mailto:jos.villalobos@uc.cl) |
+| Rocío Márquez | [@rocimarquez](https://github.com/rocimarquez) | [rociomarquez@uc.cl](mailto:rociomarquez@uc.cl) |
+| Benjamín Saavedra | [@Toastins](https://github.com/Toastins) | [benjamon@estudiante.uc.cl](mailto:benjamon@estudiante.uc.cl) |
+| Sebastián Palma | [@spmasabeu](https://github.com/spmasabeu) | [spalmam@estudiante.uc.cl](mailto:spalmam@estudiante.uc.cl) |
+
+
+1: Ignacio es el ayudante jefe del curso  
+2: Natalia es la ayudante de bienestar
+
+## 📍 Política de Nombramiento de Issues 
+**Estructura:** `[Código] - [Resumen de la duda]`
+
+Más detalle [aquí](https://github.com/IIC2513/Syllabus-S1/issues/1)

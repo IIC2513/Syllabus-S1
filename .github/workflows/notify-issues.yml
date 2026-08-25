@@ -15,19 +15,13 @@ jobs:
           ETIQUETAS: ${{ join(github.event.issue.labels.*.name, ', ') }}
           URL: ${{ github.event.issue.html_url }}
           REPO: ${{ github.repository }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: |
-          MENSAJE="🐛 <b>Nuevo issue</b> en ${REPO}
+          MENSAJE=$(printf '🐛 <b>Nuevo issue</b> en %s\n\n<b>Título:</b> %s\n<b>Autor:</b> %s\n<b>Etiquetas:</b> %s\n\n<b>Contenido:</b>\n%s\n\n🔗 %s' \
+            "$REPO" "$TITULO" "$AUTOR" "${ETIQUETAS:-sin etiquetas}" "${CUERPO:-(sin descripción)}" "$URL")
 
-<b>Título:</b> ${TITULO}
-<b>Autor:</b> ${AUTOR}
-<b>Etiquetas:</b> ${ETIQUETAS:-sin etiquetas}
-
-<b>Contenido:</b>
-${CUERPO:-(sin descripción)}
-
-🔗 ${URL}"
-
-          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TG_BOT_TOKEN }}/sendMessage" \
-            -d chat_id="${{ secrets.TG_CHAT_ID }}" \
+          curl -s -X POST "https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TG_CHAT_ID}" \
             -d parse_mode="HTML" \
             --data-urlencode text="${MENSAJE}"
